@@ -1,6 +1,6 @@
 # Ontology Library
 
-A collection of ontologies (in turtle format) all in one place.
+A collection of ontologies/vocabs (in turtle format) all in one place.
 
 ## OWL
 [owl.ttl](https://www.w3.org/2002/07/owl.ttl)
