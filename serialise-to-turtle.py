@@ -25,7 +25,7 @@ sosa_graph.parse("https://raw.githubusercontent.com/w3c/sdw-sosa-ssn/refs/heads/
 sosa_graph.parse("https://raw.githubusercontent.com/w3c/sdw-sosa-ssn/refs/heads/gh-pages/ssn/rdf/ontology/core/sosa-sampling.ttl", format="turtle")
 sosa_graph.parse("https://raw.githubusercontent.com/w3c/sdw-sosa-ssn/refs/heads/gh-pages/ssn/rdf/ontology/core/sosa.ttl", format="turtle")
 sosa_graph.serialize(
-    destination="sosa-editors-edition.ttl",
+    destination="serialised-ontologies/sosa-editors-edition.ttl",
     format="turtle"
 )
 
