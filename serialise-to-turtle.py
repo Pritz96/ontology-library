@@ -34,3 +34,11 @@ sosa_ssn_graph.serialize(
     destination="sosa-ssn-editors-edition.ttl",
     format="turtle"
 )
+
+# Load and serialise hydra json-ld into turtle as the turtle link is broken
+hydra = Graph()
+hydra.parse("https://www.hydra-cg.com/spec/latest/core/core.jsonld", format="json-ld")
+hydra.serialize(
+    destination="hydra.ttl",
+    format="turtle"
+)
