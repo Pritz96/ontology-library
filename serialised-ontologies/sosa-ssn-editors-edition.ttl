@@ -2197,17 +2197,17 @@ sosa:Property a owl:Class ;
     rdfs:label "Property"@en ;
     rdfs:isDefinedBy sosa-common: ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:allValuesFrom sosa:Actuator ;
-            owl:onProperty sosa:isActedOnBy ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom [ owl:unionOf ( sosa:Actuation sosa:ActuationCollection ) ] ;
-            owl:onProperty sosa:wasActedOnBy ],
-        [ a owl:Restriction ;
             owl:allValuesFrom sosa:FeatureOfInterest ;
             owl:onProperty sosa:isPropertyOf ],
         [ a owl:Restriction ;
             owl:allValuesFrom sosa:Procedure ;
             owl:onProperty sosa:hasProcedure ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom sosa:Actuator ;
+            owl:onProperty sosa:isActedOnBy ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom [ owl:unionOf ( sosa:Actuation sosa:ActuationCollection ) ] ;
+            owl:onProperty sosa:wasActedOnBy ],
         [ a owl:Restriction ;
             owl:allValuesFrom sosa:Sensor ;
             owl:onProperty sosa:isObservedBy ],
