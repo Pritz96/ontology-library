@@ -2070,15 +2070,15 @@ sosa:FeatureOfInterest a owl:Class ;
     rdfs:label "Feature Of Interest"@en ;
     rdfs:isDefinedBy sosa-common: ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:allValuesFrom sosa:Sample ;
-            owl:onProperty sosa:hasSample ],
-        [ a owl:Restriction ;
             owl:onProperty sosa:isFeatureOfInterestOf ;
             owl:someValuesFrom [ a owl:Class ;
                     owl:unionOf ( sosa:Deployment sosa:Execution sosa:ExecutionCollection ) ] ],
         [ a owl:Restriction ;
             owl:allValuesFrom sosa:Property ;
-            owl:onProperty sosa:hasProperty ] ;
+            owl:onProperty sosa:hasProperty ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom sosa:Sample ;
+            owl:onProperty sosa:hasSample ] ;
     skos:definition """
   entity that is the target of an Execution or Deployment
 
