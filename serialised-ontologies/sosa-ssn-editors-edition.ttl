@@ -2070,15 +2070,15 @@ sosa:FeatureOfInterest a owl:Class ;
     rdfs:label "Feature Of Interest"@en ;
     rdfs:isDefinedBy sosa-common: ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:allValuesFrom sosa:Sample ;
-            owl:onProperty sosa:hasSample ],
-        [ a owl:Restriction ;
             owl:onProperty sosa:isFeatureOfInterestOf ;
             owl:someValuesFrom [ a owl:Class ;
                     owl:unionOf ( sosa:Deployment sosa:Execution sosa:ExecutionCollection ) ] ],
         [ a owl:Restriction ;
             owl:allValuesFrom sosa:Property ;
-            owl:onProperty sosa:hasProperty ] ;
+            owl:onProperty sosa:hasProperty ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom sosa:Sample ;
+            owl:onProperty sosa:hasSample ] ;
     skos:definition """
   entity that is the target of an Execution or Deployment
 
@@ -2197,17 +2197,17 @@ sosa:Property a owl:Class ;
     rdfs:label "Property"@en ;
     rdfs:isDefinedBy sosa-common: ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:allValuesFrom sosa:Actuator ;
-            owl:onProperty sosa:isActedOnBy ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom [ owl:unionOf ( sosa:Actuation sosa:ActuationCollection ) ] ;
-            owl:onProperty sosa:wasActedOnBy ],
-        [ a owl:Restriction ;
             owl:allValuesFrom sosa:FeatureOfInterest ;
             owl:onProperty sosa:isPropertyOf ],
         [ a owl:Restriction ;
             owl:allValuesFrom sosa:Procedure ;
             owl:onProperty sosa:hasProcedure ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom sosa:Actuator ;
+            owl:onProperty sosa:isActedOnBy ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom [ owl:unionOf ( sosa:Actuation sosa:ActuationCollection ) ] ;
+            owl:onProperty sosa:wasActedOnBy ],
         [ a owl:Restriction ;
             owl:allValuesFrom sosa:Sensor ;
             owl:onProperty sosa:isObservedBy ],
