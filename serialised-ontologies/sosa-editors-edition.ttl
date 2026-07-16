@@ -391,7 +391,7 @@ sosa:hasProxy a owl:ObjectProperty ;
     rdfs:isDefinedBy sosa-obs: ;
     owl:inverseOf sosa:isProxyFor ;
     skos:definition """
-  relation from an Property to a Stimulus that serves as its proxy
+  relation from a Property to a Stimulus that serves as its proxy
   """@en ;
     skos:example """
 For example, the expansion of mercury is a Stimulus that serves as a proxy for some temperature Property.
