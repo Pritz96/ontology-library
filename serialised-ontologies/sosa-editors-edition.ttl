@@ -1082,7 +1082,7 @@ sosa:ActuatingProcedure a owl:Class ;
     rdfs:isDefinedBy sosa-act: ;
     rdfs:subClassOf sosa:Procedure ;
     skos:definition """
-  workflow, protocol, plan, algorithm, or computational method specifying how to make an Actuation
+  workflow, protocol, plan, algorithm, program, or computational method specifying how to make an Actuation
   
   An Actuating Procedure is re-usable, and might be applied in many Actuations.
   It explains the steps to be carried out to arrive at reproducible results.
@@ -1093,12 +1093,12 @@ sosa:ObservingProcedure a owl:Class ;
     rdfs:isDefinedBy sosa-obs: ;
     rdfs:subClassOf sosa:Procedure ;
     skos:definition """
-  workflow, protocol, plan, algorithm, or computational method specifying how to make an Observation
+  workflow, protocol, plan, algorithm, program, or computational method specifying how to make an Observation
 
   An Observing Procedure is re-usable, and might be involved in many Observations. 
   It explains the steps to be carried out to arrive at reproducible results.
   """@en ;
-    skos:example "A workflow, protocol, plan, algorithm, or computational method specifying how to make an observation; the description of the process used by an observer. This could be a chemical analysis method, a protocol for measuring an object, or even a checklist used by a human observer during a biodiversity campaign. The Procedure could further describe the algorithms behind simulators or models used to generate a result from other inputs."@en ;
+    skos:example "A workflow, protocol, plan, algorithm, program, or computational method specifying how to make an observation; the description of the process used by an observer. This could be a chemical analysis method, a protocol for measuring an object, or even a checklist used by a human observer during a biodiversity campaign. The Procedure could further describe the algorithms behind simulators or models used to generate a result from other inputs."@en ;
     skos:note "[ISO 19156:2023] An ObservingProcedure shall be defined as the description of steps performed in order to determine the value of an observableProperty by an Observer."@en .
 
 sosa:propertyFor a owl:ObjectProperty ;
@@ -1170,7 +1170,7 @@ sosa:SamplingProcedure a owl:Class ;
     rdfs:isDefinedBy sosa-sam: ;
     rdfs:subClassOf sosa:Procedure ;
     skos:definition """
-  workflow, protocol, plan, algorithm, or computational method specifying how to make a Sampling
+  workflow, protocol, plan, algorithm, program, or computational method specifying how to make a Sampling
 
   A Sampling Procedure is re-usable, and might be involved in many Samplings. 
   It explains the steps to be carried out to arrive at reproducible results.
@@ -1357,7 +1357,7 @@ sosa:Procedure a owl:Class ;
     rdfs:label "Procedure"@en ;
     rdfs:isDefinedBy sosa-common: ;
     skos:definition """
-  workflow, protocol, plan, algorithm, or computational method specifying how to make an Execution
+  workflow, protocol, plan, algorithm, program, or computational method specifying how to make an Execution
 
   A Procedure is re-usable, and might be applied in many Actuations, Observations, or Samplings.
   It explains the steps to be carried out to arrive at reproducible results.
@@ -1397,7 +1397,7 @@ sosa:Actuator a owl:Class ;
     skos:definition """
   System that implements an ActuatingProcedure to change the value of an actuatable Property
 
-  This may be a device, a piece of infrastructure, an agent (including humans), or software (simulation)."""@en ;
+  This may be a device, a piece of infrastructure, an agent (including humans), or a software-based system, including systems performing simulations."""@en ;
     skos:example "A window actuator for automatic window control, i.e., opening or closing the window."@en .
 
 sosa:Sample a owl:Class ;
@@ -1454,7 +1454,7 @@ sosa:System a owl:Class ;
   An Asset that implements a Procedure in the context of an Execution
   """@en ;
     skos:note """
-  This may be a device, a piece of infrastructure, an agent (including humans), or software (simulation).
+  This may be a device, a piece of infrastructure, an agent (including humans), or a software-based system, including systems performing simulations.
 
   Different Systems can implement the same (reusable) Procedure for different Executions.
 
@@ -1489,7 +1489,7 @@ sosa:Sensor a owl:Class ;
     skos:definition """
   System that implements an ObservingProcedure to determine the value of an observable Property
 
-  This may be a device, a piece of infrastructure, an agent (including humans), or software (simulation).
+  This may be a device, a piece of infrastructure, an agent (including humans), or a software-based system, including systems performing simulations.
 
   A Sensor responds to a stimulus, e.g., a change in the environment, or input data composed from the results of prior Observations.
   """@en ;
