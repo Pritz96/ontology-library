@@ -50,3 +50,11 @@ hydra.serialize(
     destination="serialised-ontologies/hydra-core-vocabulary.ttl",
     format="turtle"
 )
+
+# FOAF
+foaf = Graph()
+foaf.parse("https://xmlns.com/foaf/spec/20140114.rdf", format="xml")
+foaf.serialize(
+    destination="serialised-ontologies/foaf.ttl",
+    format="turtle"
+)
