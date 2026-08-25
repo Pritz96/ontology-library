@@ -6,6 +6,7 @@ A collection of ontologies/vocabs (in turtle format) all in one place.
 |------------|----------|
 | DCAT3 | https://www.w3.org/ns/dcat3.ttl |
 | Dublin Core Terms | https://www.dublincore.org/specifications/dublin-core/dcmi-terms/dublin_core_terms.ttl |
+| FOAF | https://raw.githubusercontent.com/Pritz96/ontology-library/refs/heads/main/serialised-ontologies/foaf.ttl |
 | GEOSPARQL | https://raw.githubusercontent.com/opengeospatial/ogc-geosparql/refs/heads/master/vocabularies/geo.ttl |
 | Hydra (Core Vocabulary) | https://raw.githubusercontent.com/Pritz96/ontology-library/refs/heads/main/serialised-ontologies/hydra-core-vocabulary.ttl |
 | OWL | https://www.w3.org/2002/07/owl.ttl |
