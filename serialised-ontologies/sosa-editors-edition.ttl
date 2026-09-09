@@ -72,7 +72,7 @@ sosa:Result a owl:Class ;
     skos:definition """
   outcome of an Observation, Actuation, or act of Sampling. 
   
-  To store an observation's simple result value one can use the hasSimpleResult property.
+  To store the simple result value of an observation one can use the hasSimpleResult property.
   """@en ;
     skos:example "The value 20 as the height of a certain tree together with the unit, e.g., Meter."@en .
 
@@ -142,7 +142,7 @@ sosa:inputValueForExecution a owl:ObjectProperty ;
     rdfs:isDefinedBy sosa-common: ;
     owl:inverseOf sosa:hasInputValue ;
     skos:definition """
-  relation from an input value to an Execution that used it
+  relation from an input value to an Execution that used the value
   """@en .
 
 sosa:isUltimateFeatureOfInterestOf a owl:ObjectProperty ;
@@ -160,7 +160,7 @@ sosa:isUltimateFeatureOfInterestOf a owl:ObjectProperty ;
     rdfs:isDefinedBy sosa-common: ;
     owl:inverseOf sosa:hasUltimateFeatureOfInterest ;
     skos:definition """
-  relation from an ultimate FeatureOfInterest to an Execution, Execution Collection, or Deployment, for which it is the ultimate subject
+  relation from an ultimate FeatureOfInterest to an Execution, Execution Collection, or Deployment, for which that FeatureOfInterest is the ultimate target
   """@en .
 
 sosa:resultTime a owl:DatatypeProperty ;
@@ -202,7 +202,7 @@ sosa:actsOn a owl:ObjectProperty ;
     rdfs:subPropertyOf sosa:forProperty ;
     owl:inverseOf sosa:isActedOnBy ;
     skos:definition """
-  relation from an Actuator to a Property whose state may be changed by using it
+  relation from an Actuator to a Property whose state may be changed by that Actuator
   """@en ;
     skos:example "In the activity (Actuation) of automatically closing a window if the temperature in a room drops below 20 degrees Celsius, the property upon which the Actuator acts is the state of the window as it changes from being open to being closed. "@en .
 
@@ -281,11 +281,11 @@ sosa:hasFeatureOfInterest a owl:ObjectProperty ;
     rdfs:isDefinedBy sosa-common: ;
     owl:inverseOf sosa:isFeatureOfInterestOf ;
     skos:definition """
-  relation from an Execution or Deployment to its subject entity
+  relation from an Execution or Deployment to its target entity
 
-  i.e., from an Actuation to the entity whose property was modified;
-  from an Observation to the entity whose quality was observed;
-  from an act of Sampling to the entity that was sampled;
+  i.e., from an Actuation or ActuationCollection to the entity whose property was modified;
+  from an Observation or ObservationCollection to the entity whose quality was observed;
+  from an act of Sampling or SamplingCollection to the entity that was sampled;
   or from a Deployment to its target
   """@en ;
     skos:example "For example, in an Observation of the weight of a person, the FeatureOfInterest is the person and the property is its weight."@en ;
@@ -337,10 +337,10 @@ sosa:hasMember a owl:ObjectProperty ;
     rdfs:isDefinedBy sosa-common: ;
     owl:inverseOf sosa:isMemberOf ;
     skos:definition """
-  link from a Collection to an Execution or Sample or Collection of these that is part of it
+  link from a Collection to an Execution or Sample or Collection of these that is part of that Collection
   """ ;
-    skos:editorialNote "Note that there is a single `member` property. OWL or SHACL constraints may limit the range depending on the context of different collection types" ;
-    skos:scopeNote "rules for the consistency of values of properties of collections and properties of their members are given for each collection type" .
+    skos:editorialNote "Note that there is a single `hasMember` property. OWL or SHACL constraints may limit the range depending on the context of different collection types" ;
+    skos:scopeNote "Rules for the consistency of values of properties of collections and properties of their members are given for each collection type" .
 
 sosa:hasOriginalSample a owl:ObjectProperty ;
     rdfs:label "has original sample"@en ;
@@ -371,7 +371,7 @@ sosa:hasProcedure a owl:ObjectProperty ;
     rdfs:subPropertyOf sosa:propertyFor ;
     owl:inverseOf sosa:isProcedureFor ;
     skos:definition """
-  relation from a Property to a Procedure that can observe or act on it
+  relation from a Property to a Procedure that can act on or observe that Property
   """@en .
 
 sosa:hasProperty a owl:ObjectProperty ;
@@ -394,7 +394,7 @@ sosa:hasProxy a owl:ObjectProperty ;
   relation from a Property to a Stimulus that serves as its proxy
   """@en ;
     skos:example """
-For example, the expansion of mercury is a Stimulus that serves as a proxy for some temperature Property.
+The expansion of mercury is a Stimulus that serves as a proxy for some temperature Property.
 An increase or decrease in the velocity of spinning cups on a wind Sensor is serving as a proxy for the wind speed.
   """@en .
 
@@ -465,11 +465,11 @@ sosa:hasUltimateFeatureOfInterest a owl:ObjectProperty ;
     schema1:rangeIncludes sosa:FeatureOfInterest ;
     rdfs:isDefinedBy sosa-common: ;
     skos:definition """
-  relation from a Deployment or Execution to its ultimate subject entity
+  relation from a Deployment or Execution to its ultimate target entity
 
-  i.e., from an Actuation to the ultimate entity whose property was modified;
-  from an Observation to the ultimate entity whose property was observed;
-  from an act of Sampling to the ultimate entity that was sampled;
+  i.e., from an Actuation or ActuationCollection to the ultimate entity whose property was modified;
+  from an Observation or ObservationCollection to the ultimate entity whose property was observed;
+  from an act of Sampling or SamplingCollection to the ultimate entity that was sampled;
   or from a Deployment to its ultimate target
   """@en ;
     skos:note """should match a property chain something like this but with sosa:isSampleOf*
@@ -488,7 +488,7 @@ sosa:hosts a owl:ObjectProperty ;
     rdfs:isDefinedBy sosa-common: ;
     owl:inverseOf sosa:isHostedBy ;
     skos:definition """
-  relation from a Platform to an Asset (System or Platform) hosted or mounted on it
+  relation from a Platform to an Asset (System or Platform) hosted or mounted on that Platform
   """@en .
 
 sosa:implementedBy a owl:ObjectProperty ;
@@ -501,7 +501,7 @@ sosa:implementedBy a owl:ObjectProperty ;
     rdfs:isDefinedBy sosa-common: ;
     owl:inverseOf sosa:implements ;
     skos:definition """
-  relation from a Procedure to a System that is capable of executing it
+  relation from a Procedure to a System that is capable of executing the Procedure
   """@en ;
     skos:example "For example, the relationship between a scientific measuring Procedure and a sensor that senses via that Procedure."@en .
 
@@ -530,7 +530,7 @@ sosa:inDeployment a owl:ObjectProperty ;
     rdfs:subPropertyOf sosa:hasDeployment ;
     owl:inverseOf sosa:deployedOnPlatform ;
     skos:definition """
-  relation from a Platform to a Deployment
+  relation from a Platform to a Deployment using that Platform
   """@en ;
     skos:example "For example, a relation between a buoy and a deployment of several Sensors."@en .
 
@@ -561,7 +561,7 @@ sosa:isDetectedBy a owl:ObjectProperty ;
     rdfs:isDefinedBy sosa-obs: ;
     owl:inverseOf sosa:detects ;
     skos:definition """
-  relation from a Stimulus to a Sensor that may detect it
+  relation from a Stimulus to a Sensor that may detect that Stimulus
 
   The Stimulus itself will be serving as a proxy for some Property.
   """@en .
@@ -581,10 +581,12 @@ sosa:isFeatureOfInterestOf a owl:ObjectProperty ;
     rdfs:isDefinedBy sosa-common: ;
     owl:inverseOf sosa:hasFeatureOfInterest ;
     skos:definition """
-  relation from a FeatureOfInterest to an Execution, Execution Collection, or Deployment, operating on it
+  relation from a FeatureOfInterest to an Execution, Execution Collection, or Deployment, operating on that FeatureOfInterest
 
-  i.e., to an Observation about it, to an Actuation acting on it, to an act of Sampling that sampled it,
-  or to a Deployment for which it is the subject.
+  i.e., to an Actuation or ActuationCollection acting on it, 
+  to an Observation or ObservationCollection about it, 
+  to an act of Sampling or SamplingCollection that sampled it, 
+  or to a Deployment for which it is the target.
 """@en .
 
 sosa:isHostedBy a owl:ObjectProperty ;
@@ -622,10 +624,10 @@ sosa:isMemberOf a owl:ObjectProperty ;
     rdfs:isDefinedBy sosa-common: ;
     owl:inverseOf sosa:hasMember ;
     skos:definition """
-  link from an Execution or Sample or Collection of these, to a collection that it is part of
+  link from an Execution or Sample or Collection of these, to a Collection which that Execution or Sample or Collection is part of
   """ ;
-    skos:editorialNote "Note that there is a single `member` property. OWL or SHACL constraints may limit the range depending on the context of different collection types" ;
-    skos:scopeNote "rules for the consistency of values of properties of collections and properties of their members are given for each collection type" .
+    skos:editorialNote "Note that there is a single `isMemberOf` property. OWL or SHACL constraints may limit the range depending on the context of different collection types" ;
+    skos:scopeNote "Rules for the consistency of values of properties of collections and properties of their members are given for each collection type" .
 
 sosa:isObservedBy a owl:ObjectProperty ;
     rdfs:label "is observed by"@en ;
@@ -634,7 +636,7 @@ sosa:isObservedBy a owl:ObjectProperty ;
     rdfs:isDefinedBy sosa-obs: ;
     owl:inverseOf sosa:observes ;
     skos:definition """
-  relation from a Property to a Sensor that is able to observe it
+  relation from a Property to a Sensor that is able to observe that Property
   """@en .
 
 sosa:isOriginalSampleOf a owl:ObjectProperty ;
@@ -691,7 +693,7 @@ sosa:isResultOf a owl:ObjectProperty ;
     rdfs:isDefinedBy sosa-common: ;
     owl:inverseOf sosa:hasResult ;
     skos:definition """
-  relation from a result to the Execution that created or caused it
+  relation from a result to the Execution that created or caused that result
   """@en .
 
 sosa:isResultOfMadeBySampler a owl:ObjectProperty ;
@@ -775,7 +777,7 @@ sosa:madeByActuator a owl:ObjectProperty ;
     rdfs:subPropertyOf sosa:madeBySystem ;
     owl:inverseOf sosa:madeActuation ;
     skos:definition """
-  relation from an Actuation or ActuationCollection to the Actuator that made it
+  relation from an Actuation or ActuationCollection to the Actuator that made that Actuation or ActuationCollection
   """@en .
 
 sosa:madeBySampler a owl:ObjectProperty ;
@@ -799,7 +801,7 @@ sosa:madeBySensor a owl:ObjectProperty ;
     rdfs:subPropertyOf sosa:madeBySystem ;
     owl:inverseOf sosa:madeObservation ;
     skos:definition """
-  relation from an Observation or ObservationCollection to the Sensor involved
+  relation from an Observation or ObservationCollection to the Sensor which made that Observation or ObservationCollection
   """@en .
 
 sosa:madeObservation a owl:ObjectProperty ;
@@ -862,7 +864,7 @@ sosa:observedProperty a owl:ObjectProperty ;
     rdfs:isDefinedBy sosa-obs: ;
     owl:inverseOf sosa:wasObservedBy ;
     skos:definition """
-  relation from an Observation or ObservationCollection to the property observed
+  relation from an Observation or ObservationCollection to the property observed in that Observation or ObservationCollection
   """@en ;
     skos:note """
   'observed property' covers the concepts referred to in [VIM] as 'measurand' (quantitative values) and 'examinand' (categorical and nominal values — [VIM4]), as well as complex and structured properties whose values may be represented as lists, vectors, arrays, rasters, geometries, etc. More specific terms are used in other contexts for related concepts, such as 'analyte' (chemistry) and 'determinand' (water quality).
@@ -886,7 +888,7 @@ sosa:originated a owl:ObjectProperty ;
     rdfs:isDefinedBy sosa-obs: ;
     owl:inverseOf sosa:wasOriginatedBy ;
     skos:definition """
-  relation from a Stimulus to an Observation that was originated by it
+  relation from a Stimulus to an Observation that was originated by that Stimulus
   """@en .
 
 sosa:outputFor a owl:ObjectProperty ;
@@ -895,7 +897,7 @@ sosa:outputFor a owl:ObjectProperty ;
     rdfs:isDefinedBy sosa-common: ;
     owl:inverseOf sosa:hasOutput ;
     skos:definition """
-  relation from an output to a Procedure that generates it in an Execution
+  relation from an output to a Procedure that generates that output in an Execution
   """@en .
 
 sosa:phenomenonOccurred a owl:ObjectProperty ;
@@ -927,12 +929,12 @@ sosa:phenomenonTime a owl:ObjectProperty ;
     rdfs:isDefinedBy sosa-common: ;
     owl:inverseOf sosa:phenomenonOccurred ;
     skos:definition """
-  time that the result of an Execution applies to the subject entity
+  time that the result of an Execution applies to the target entity
 
-  It may be an interval or an instant, or some other compound temporal entity [[!owl-time]].
+  This may be an interval or an instant, or some other compound temporal entity [[!owl-time]].
   """@en ;
     skos:scopeNote """
-  The phenomenonTime is not necessarily the same as the resultTime. 
+  The phenomenonTime is not necessarily the same as the endTime or resultTime. 
   
   In the case of Actuation, phenomenonTime SHOULD indicate the time during which the actuator was active. 
 
@@ -951,7 +953,7 @@ sosa:qualityOf a owl:ObjectProperty ;
     rdfs:isDefinedBy sosa-obs: ;
     owl:inverseOf sosa:resultQuality ;
     skos:definition """
-  link from a quality description to an Observation or ObservationCollection that it relates to
+  link from a quality description to an Observation or ObservationCollection which that quality description relates to
   """@en .
 
 sosa:relatedObservation a owl:ObjectProperty ;
@@ -978,7 +980,7 @@ sosa:resultQuality a owl:ObjectProperty ;
     rdfs:isDefinedBy sosa-obs: ;
     owl:inverseOf sosa:qualityOf ;
     skos:definition """
-  relation from an Observation or ObservationCollection to some information pertaining to the quality of the result
+  relation from an Observation or ObservationCollection to some information pertaining to the quality of that result
   """@en ;
     skos:note """
   The quality of a result can be assessed following the procedures in the ISO 19157 series.
@@ -996,7 +998,7 @@ sosa:systemDeployment a owl:ObjectProperty ;
     rdfs:subPropertyOf sosa:hasDeployment ;
     owl:inverseOf sosa:deployedSystem ;
     skos:definition """
-  relation from a System to a Deployment
+  relation from a System to a Deployment of that System
   """@en .
 
 sosa:usedForExecution a owl:ObjectProperty ;
@@ -1009,7 +1011,7 @@ sosa:usedForExecution a owl:ObjectProperty ;
     rdfs:isDefinedBy sosa-common: ;
     owl:inverseOf sosa:usedProcedure ;
     skos:definition """
-  relation from a Procedure to an Execution or ExecutionCollection made using it
+  relation from a Procedure to an Execution or ExecutionCollection made using that Procedure
   """@en .
 
 sosa:usedForExecutionHasResult a owl:ObjectProperty ;
@@ -1063,7 +1065,7 @@ sosa:wasObservedBy a owl:ObjectProperty ;
     rdfs:isDefinedBy sosa-obs: ;
     owl:inverseOf sosa:observedProperty ;
     skos:definition """
-  relation from a Property to an Observation that observed it
+  relation from a Property to an Observation that observed that Property
   """@en .
 
 sosa:wasOriginatedBy a owl:ObjectProperty ;
@@ -1074,7 +1076,7 @@ sosa:wasOriginatedBy a owl:ObjectProperty ;
     rdfs:isDefinedBy sosa-obs: ;
     owl:inverseOf sosa:originated ;
     skos:definition """
-  relation from an Observation to the Stimulus that originated it
+  relation from an Observation to the Stimulus that originated that Observation
   """@en .
 
 sosa:ActuatingProcedure a owl:Class ;
@@ -1111,7 +1113,7 @@ sosa:propertyFor a owl:ObjectProperty ;
     rdfs:isDefinedBy sosa-common: ;
     owl:inverseOf sosa:forProperty ;
     skos:definition """
-  relation from a Property to some Procedure or System that acts on it or observes it
+  relation from a Property to some Procedure or System that acts on it or observes that Property
   """@en ;
     skos:example "For example, from a Sensor to the properties it can observe; from an Actuator to the properties it can act on; from a SystemCapability to the Property the capability is described for."@en .
 
@@ -1215,14 +1217,14 @@ sosa:madeBySystem a owl:ObjectProperty ;
     rdfs:isDefinedBy sosa-common: ;
     owl:inverseOf sosa:madeExecution ;
     skos:definition """
-  relation from an Execution to the System that made it
+  relation from an Execution to the System that made that Execution
   """@en ;
     skos:scopeNote """
   madeBySystem generalizes the madeByActuator, madeBySensor, and madeBySampler properties. 
   It is included in the ontology to support the definition of a common pattern for executions and their properties. 
 
   madeBySystem is considered to be abstract. 
-  Applications SHOULD use concrete sub-properties of madeBySystem.
+  Applications SHOULD use concrete subproperties of madeBySystem.
   """@en .
 
 sosa:madeExecution a owl:ObjectProperty ;
@@ -1249,7 +1251,7 @@ sosa:madeExecution a owl:ObjectProperty ;
   It is included in the ontology to support the definition of a common pattern for executions and their properties. 
 
   madeExecution is considered to be abstract. 
-  Applications SHOULD use concrete sub-properties of madeExecution.
+  Applications SHOULD use concrete subproperties of madeExecution.
   """@en .
 
 sosa:Asset a owl:Class ;
@@ -1263,7 +1265,7 @@ sosa:Asset a owl:Class ;
   It is included in the ontology to support the definition of a common pattern for deployments. 
 
   Asset is considered to be abstract. 
-  Individual assets SHOULD be typed with one of the (concrete) sub-classes of Asset.
+  Individual assets SHOULD be typed with one of the (concrete) subclasses of Asset.
   """@en .
 
 sosa:Stimulus a owl:Class ;
@@ -1272,7 +1274,7 @@ sosa:Stimulus a owl:Class ;
     skos:definition """
   event in the real world that triggers a Sensor
   """@en ;
-    skos:note "The properties associated to the Stimulus may be different to the eventual observed Property. It is the event, not the object, that triggers the Sensor."@en .
+    skos:note "The Properties associated with a Stimulus may differ from those eventually observed. It is the event, not the object, that triggers the Sensor."@en .
 
 sosa:Platform a owl:Class ;
     rdfs:label "Platform or Host"@en ;
@@ -1284,7 +1286,7 @@ sosa:Platform a owl:Class ;
   An Asset that hosts other Assets, particularly Systems (often Sensors), and other Platforms.
   """@en ;
     skos:example """
-  A post, tree, buoy, vehicle, ship, aircraft, satellite, cell-phone, human or animal may act as platforms for (technical or biological) sensors or actuators.
+  A post, tree, buoy, vehicle, ship, aircraft, satellite, mobile phone, human or animal may act as platforms for (technical or biological) sensors or actuators.
   An environmental monitoring facility.
   """@en ;
     skos:prefLabel "Platform" ;
@@ -1294,12 +1296,12 @@ sosa:FeatureOfInterest a owl:Class ;
     rdfs:label "Feature Of Interest"@en ;
     rdfs:isDefinedBy sosa-common: ;
     skos:definition """
-  entity that is the target of an Execution or Deployment
+  entity that is the target of an Execution or ExecutionCollection or Deployment
 
-  i.e., whose property is being estimated by an Observation, 
-  or whose property is being manipulated by an Actuator, 
-  or which is being sampled or transformed in an act of Sampling, 
-  or which is the target of Executions planned as part of a Deployment.
+i.e., the entity whose property is being manipulated by an Actuation or ActuationCollection,
+or whose property is being estimated by an Observation or ObservationCollection,
+or which is being sampled or transformed by an act of Sampling or SamplingCollection,
+or which is the target of Executions planned as part of a Deployment.
   """@en ;
     skos:example "When measuring the height of a tree, the height is the observed Property, 20m may be the Result of the Observation, and the tree is the FeatureOfInterest. A window is a FeatureOfInterest for an automatic window control Actuation."@en .
 
@@ -1458,20 +1460,20 @@ sosa:System a owl:Class ;
 
   Different Systems can implement the same (reusable) Procedure for different Executions.
 
-  A System may have components, its sub-systems, which are other systems.
+  A System may have components, its subsystems, which are other systems.
   """@en ;
     skos:scopeNote """
-  Specific system types may be implemented as sub-classes of this class or its sub-classes.
-  Their descriptions may capture the properties and characteristics of a whole class of systems, corresponding with the information typically found in a data-sheet.
+  Specific system types may be implemented as subclasses of this class or its subclasses.
+  Their descriptions may capture the properties and characteristics of a whole class of systems, corresponding with the information typically found in a datasheet.
 
-  Individual system instances are members of this class or its sub-classes. 
+  Individual system instances are members of this class or its subclasses. 
   """@en,
         """
   System generalizes the Actuator, Sensor, and Sampler classes. 
   It is included in the ontology to support the definition of a common pattern for executions and their properties. 
 
   System is considered to be abstract. 
-  Individual systems SHOULD be typed with one of the (concrete) sub-classes of System.
+  Individual systems SHOULD be typed with one of the (concrete) subclasses of System.
   """@en,
         """
   The association of a System (Actuator, Sensor, and Sampler) with a FeatureOfInterest is usually in the context of an Execution or a Deployment. 
@@ -1547,7 +1549,7 @@ sosa:Actuation a owl:Class ;
   
   In this context hasResult may indicate the value of the Property at the completion of the Actuation
   """@en ;
-    skos:example "The activity of automatically closing a window if the temperature in a room drops below 20 degree Celsius. The activity is the Actuation and the device that closes the window is the Actuator. The Procedure is the rule, plan, or specification that defines the conditions that triggers the Actuation, here a drop in temperature. "@en ;
+    skos:example "The activity of automatically closing a window if the temperature in a room drops below 20 degrees Celsius. The activity is the Actuation and the device that closes the window is the Actuator. The Procedure is the rule, plan, or specification that defines the conditions that triggers the Actuation, here a drop in temperature. "@en ;
     skos:note "relatedObservation SHOULD be used to link to an associated Observation or ObservationCollection that monitors the actuated property to verify that the result value has been obtained. "@en ;
     skos:scopeNote """
   An Actuation primarily concerns a single Property of a single FeatureOfInterest. 
@@ -1566,7 +1568,7 @@ sosa:ActuationCollection a owl:Class ;
 
   All Actuation properties may appear in an Actuation Collection, including:
   hasFeatureOfInterest , usedProcedure , madeByActuator , actsOnProperty , endTime ,  hasResult , hasSimpleResult . 
-  If they are present, the value of these properties summarize the values of the matching properties of the member actuations, where membership is either direct or transitive through one or more member actuation collections. 
+  If they are present, the values of these properties summarize the values of the matching properties of the member actuations, where membership is either direct or transitive through one or more member actuation collections. 
   The following consistency rules apply with respect to the Actuation properties: 
   
   1. Where an individual Actuation Collection omits a property, a member Actuation (direct or transitive) MAY have any value for that property.
@@ -1592,7 +1594,7 @@ sosa:Execution a owl:Class ;
   It is included in the ontology to support the definition of a common pattern for executions and their properties. 
 
   Execution is considered to be abstract. 
-  Individual executions SHOULD be typed with one of the (concrete) sub-classes of Execution.
+  Individual executions SHOULD be typed with one of the (concrete) subclasses of Execution.
   """@en .
 
 sosa:ObservationCollection a owl:Class ;
@@ -1604,7 +1606,7 @@ sosa:ObservationCollection a owl:Class ;
 
   All Observation properties may appear in an Observation Collection, including: 
   hasFeatureOfInterest , hasUltimateFeatureOfInterest , usedProcedure , madeBySensor , observedProperty , phenomenonTime , startTime, resultTime , hasResult , hasSimpleResult : 
-  If they are present, the value of these properties summarize the values of the matching properties of the member observations, where membership is either direct or transitive through one or more member observation collections. 
+  If they are present, the values of these properties summarize the values of the matching properties of the member observations, where membership is either direct or transitive through one or more member observation collections. 
   The following consistency rules apply with respect to the Observation properties listed above: 
   
   1. Where an individual Observation Collection omits a property, a member Observation (direct or transitive) MAY have any value for that property.
@@ -1651,7 +1653,7 @@ sosa:ExecutionCollection a owl:Class ;
   It is included in the ontology to support the definition of a common pattern for executions and their properties. 
 
   ExecutionCollection is considered to be abstract. 
-  Individual execution collections SHOULD be typed with one of the (concrete) sub-classes of ExecutionCollection.
+  Individual execution collections SHOULD be typed with one of the (concrete) subclasses of ExecutionCollection.
   """@en .
 
 sosa:Observation a owl:Class ;
