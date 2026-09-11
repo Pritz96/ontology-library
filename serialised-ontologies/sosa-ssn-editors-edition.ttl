@@ -291,7 +291,7 @@ sosa:featureHasUltimateSample a owl:ObjectProperty ;
     rdfs:isDefinedBy sosa-sam: ;
     owl:inverseOf sosa:isSampleOfUltimateFOI ;
     skos:definition """
-  relation from an ultimate FeatureOfInterest to a Sample or SampleCollection that is intended to be representative of it; i.e., the end of a chain of hasSample relations
+  relation from an ultimate FeatureOfInterest to a Sample or SampleCollection that is intended to be representative of that FeatureOfInterest; i.e., the end of a chain of hasSample relations
   """@en .
 
 sosa:hasInputValue a owl:ObjectProperty ;
@@ -388,7 +388,7 @@ sosa:madeSamplingHasResult a owl:ObjectProperty ;
     owl:inverseOf sosa:isResultOfMadeBySampler ;
     owl:propertyChainAxiom ( sosa:madeSampling sosa:hasResult ) ;
     skos:definition """
-  relation from a Sampler to a Sample or SampleCollection made by it
+  relation from a Sampler to a Sample or SampleCollection made by that Sampler
   """@en .
 
 sosa:observationRelatedTo a owl:ObjectProperty ;
@@ -516,7 +516,7 @@ sosa:usedForExecutionHasResult a owl:ObjectProperty ;
     owl:inverseOf sosa:isResultOfUsedProcedure ;
     owl:propertyChainAxiom ( sosa:usedForExecution sosa:hasResult ) ;
     skos:definition """
-  relation from a Procedure to a Sample or SampleCollection made by it
+  relation from a Procedure to a Sample or SampleCollection made by that Procedure
   """@en .
 
 ssn:Deployment a owl:Class ;
@@ -705,11 +705,12 @@ sosa:hasProcedure a owl:ObjectProperty ;
 sosa:hasSample a owl:ObjectProperty ;
     rdfs:label "has sample"@en ;
     schema1:domainIncludes sosa:FeatureOfInterest ;
-    schema1:rangeIncludes sosa:Sample ;
+    schema1:rangeIncludes sosa:Sample,
+        sosa:SampleCollection ;
     rdfs:isDefinedBy sosa-sam: ;
     owl:inverseOf sosa:isSampleOf ;
     skos:definition """
-  relation from a FeatureOfInterest to the Sample or SampleCollection used to represent it
+  relation from a FeatureOfInterest to the Sample or SampleCollection used to represent that FeatureOfInterest
   """@en .
 
 sosa:hosts a owl:ObjectProperty ;
@@ -1039,7 +1040,7 @@ sosa:hasOriginalSample a owl:ObjectProperty ;
     rdfs:isDefinedBy sosa-sam: ;
     owl:inverseOf sosa:isOriginalSampleOf ;
     skos:definition """
-  relation from a Sample or SampleCollection to the initial Sample collected from the ultimate FeatureOfInterest
+  relation from a Sample or SampleCollection to the initial Sample collected from that ultimate FeatureOfInterest
   """@en .
 
 sosa:hasProperty a owl:ObjectProperty ;
@@ -1087,7 +1088,7 @@ sosa:isResultOfMadeBySampler a owl:ObjectProperty ;
     owl:inverseOf sosa:madeSamplingHasResult ;
     owl:propertyChainAxiom ( sosa:isResultOf sosa:madeBySampler ) ;
     skos:definition """
-  relation from a Sample or SampleCollection to the Sampler that made it
+  relation from a Sample or SampleCollection to the Sampler that made that Sample or SampleCollection
   """@en .
 
 sosa:isResultOfUsedProcedure a owl:ObjectProperty ;
@@ -1099,7 +1100,7 @@ sosa:isResultOfUsedProcedure a owl:ObjectProperty ;
     owl:inverseOf sosa:usedForExecutionHasResult ;
     owl:propertyChainAxiom ( sosa:isResultOf sosa:usedProcedure ) ;
     skos:definition """
-  relation from a Sample or SampleCollection to the Procedure (plan) used to make it
+  relation from a Sample or SampleCollection to the Procedure used to make that Sample or SampleCollection
   """@en .
 
 sosa:isSampleOfUltimateFOI a owl:ObjectProperty ;
@@ -1146,7 +1147,7 @@ sosa:madeSampling a owl:ObjectProperty ;
     rdfs:subPropertyOf sosa:madeExecution ;
     owl:inverseOf sosa:madeBySampler ;
     skos:definition """
-  relation from a Sampler to the Sampling or SamplingCollection it has made
+  relation from a Sampler to the Sampling or SamplingCollection made by that Sampler
   """@en .
 
 sosa:observedProperty a owl:ObjectProperty ;
@@ -1259,7 +1260,7 @@ sosa:madeBySampler a owl:ObjectProperty ;
     rdfs:subPropertyOf sosa:madeBySystem ;
     owl:inverseOf sosa:madeSampling ;
     skos:definition """
-  relation from an act of Sampling to the Sampler that made it
+  relation from an act of Sampling to the Sampler that made that act of Sampling
   """@en .
 
 ssn:System a owl:Class ;
@@ -1566,7 +1567,7 @@ sosa:SamplingProcedure a owl:Class ;
   workflow, protocol, plan, algorithm, program, or computational method specifying how to make a Sampling
 
   A Sampling Procedure is re-usable, and might be involved in many Samplings. 
-  It explains the steps to be carried out to arrive at reproducible results.
+  The Sampling Procedure explains the steps to be carried out to arrive at reproducible results.
   """@en ;
     skos:example """
 spatial distribution of locations where to collect a sample (e.g., river segment)
@@ -1734,7 +1735,7 @@ sosa:SampleCollection a owl:Class ;
 
   All Sample properties may appear in a Sample Collection, including: 
   hasOriginalSample , isSampleOfUltimateFOI , isSampleOf , isResultOfUsedProcedure , isResultOfMadeBySampler . 
-  If they are present, the value of these properties summarize the values of the matching properties of the member samples, where membership is either direct or transitive through one or more member sample collections. 
+  If these properties are present, their values summarize the values of the matching properties of the member samples, where membership is either direct or transitive through one or more member sample collections. 
 
   The following consistency rules apply with respect to the Sample properties listed above: 
   
@@ -2196,6 +2197,12 @@ sosa:Property a owl:Class ;
     rdfs:label "Property"@en ;
     rdfs:isDefinedBy sosa-common: ;
     rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom sosa:FeatureOfInterest ;
+            owl:onProperty sosa:isPropertyOf ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom sosa:Procedure ;
+            owl:onProperty sosa:hasProcedure ],
+        [ a owl:Restriction ;
             owl:allValuesFrom sosa:Sensor ;
             owl:onProperty sosa:isObservedBy ],
         [ a owl:Restriction ;
@@ -2204,12 +2211,6 @@ sosa:Property a owl:Class ;
         [ a owl:Restriction ;
             owl:allValuesFrom sosa:Stimulus ;
             owl:onProperty [ owl:inverseOf sosa:isProxyFor ] ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom sosa:FeatureOfInterest ;
-            owl:onProperty sosa:isPropertyOf ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom sosa:Procedure ;
-            owl:onProperty sosa:hasProcedure ],
         [ a owl:Restriction ;
             owl:allValuesFrom sosa:Actuator ;
             owl:onProperty sosa:isActedOnBy ],
