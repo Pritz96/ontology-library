@@ -519,7 +519,7 @@ sosa:implements a owl:ObjectProperty ;
     rdfs:isDefinedBy sosa-common: ;
     owl:inverseOf sosa:implementedBy ;
     skos:definition """
-  relation from a System to the Procedure that it is capable of executing
+  relation from a System to a Procedure that it is capable of executing
   """@en ;
     skos:example "For example, the relationship between a sensor and the scientific measuring Procedure via which it senses."@en .
 
@@ -625,7 +625,7 @@ sosa:isMemberOf a owl:ObjectProperty ;
     rdfs:isDefinedBy sosa-common: ;
     owl:inverseOf sosa:hasMember ;
     skos:definition """
-  link from an Execution or Sample or Collection of these, to a Collection which that Execution or Sample or Collection is part of
+  link from an Execution or Sample, or Collection of these, to a Collection which that Execution or Sample or Collection is part of
   """ ;
     skos:editorialNote "Note that there is a single `isMemberOf` property. OWL or SHACL constraints may limit the range depending on the context of different collection types" ;
     skos:scopeNote "Rules for the consistency of values of properties of collections and properties of their members are given for each collection type" .
@@ -1098,7 +1098,7 @@ sosa:ObservingProcedure a owl:Class ;
     skos:definition """
   workflow, protocol, plan, algorithm, program, or computational method specifying how to make an Observation
 
-  An Observing Procedure is re-usable, and might be involved in many Observations. 
+  An Observing Procedure is re-usable, and might be applied in many Observations. 
   It explains the steps to be carried out to arrive at reproducible results.
   """@en ;
     skos:example "A workflow, protocol, plan, algorithm, program, or computational method specifying how to make an observation; the description of the process used by an observer. This could be a chemical analysis method, a protocol for measuring an object, or even a checklist used by a human observer during a biodiversity campaign. The Procedure could further describe the algorithms behind simulators or models used to generate a result from other inputs."@en ;
@@ -1175,7 +1175,7 @@ sosa:SamplingProcedure a owl:Class ;
     skos:definition """
   workflow, protocol, plan, algorithm, program, or computational method specifying how to make a Sampling
 
-  A Sampling Procedure is re-usable, and might be involved in many Samplings. 
+  A Sampling Procedure is re-usable, and might be applied in many Samplings. 
   The Sampling Procedure explains the steps to be carried out to arrive at reproducible results.
   """@en ;
     skos:example """
@@ -1297,7 +1297,7 @@ sosa:FeatureOfInterest a owl:Class ;
     rdfs:label "Feature Of Interest"@en ;
     rdfs:isDefinedBy sosa-common: ;
     skos:definition """
-  entity that is the target of an Execution or ExecutionCollection or Deployment
+  entity that is the target of an Execution, ExecutionCollection, or Deployment
 
 i.e., the entity whose property is being manipulated by an Actuation or ActuationCollection,
 or whose property is being estimated by an Observation or ObservationCollection,
@@ -1340,17 +1340,17 @@ sosa:SampleCollection a owl:Class ;
   hasOriginalSample , isSampleOfUltimateFOI , isSampleOf , isResultOfUsedProcedure , isResultOfMadeBySampler . 
   If these properties are present, their values summarize the values of the matching properties of the member samples, where membership is either direct or transitive through one or more member sample collections. 
 
-  The following consistency rules apply with respect to the Sample properties listed above: 
+  The following consistency rules apply to the Sample properties listed above: 
   
   1. Where an individual Sample Collection omits a property, a member Sample (direct or transitive) MAY have any value for that property.
 
-  2. Where an individual Sample Collection has a single value for a property, each member Sample (direct or transitive) MUST have that same value for the property - i.e., the collection is homogeneous in that property.  That property MAY be omitted in any member Sample or Sample Collection.
+  2. Where an individual Sample Collection has a single value for a property, each member Sample (direct or transitive) MUST have that same value for that property; i.e., the collection is homogeneous in that property.  That property MAY be omitted in any member Sample or Sample Collection.
 
   3. Where an individual Sample Collection has more than one value for a property, each member Sample (direct or transitive) MUST have a value for that property that matches one of the values for the property in the collection. 
   
-  4. Where an individual Sample Collection has a value for a property that is a range or interval, each member Sample (direct or transitive) MUST have a value for that property that either matches or falls within that range or interval.
+  4. Where an individual Sample Collection has a value for a property that is a range or interval, each member Sample (direct or transitive) MUST have a value for that property that matches or falls within that range or interval.
 
-  5. Where an individual Sample Collection has more than one value for a property that is a range or interval, each member Sample (direct or transitive) MUST have a value for that property that either matches or falls within one of those ranges or intervals.
+  5. Where an individual Sample Collection has more than one value for a property that is a range or interval, each member Sample (direct or transitive) MUST have a value for that property that matches or falls within one of those ranges or intervals.
   """@en ;
     skos:note """
   The members of a collection do not necessarily share a common value for any property. 
@@ -1362,7 +1362,7 @@ sosa:Procedure a owl:Class ;
     skos:definition """
   workflow, protocol, plan, algorithm, program, or computational method specifying how to make an Execution
 
-  A Procedure is re-usable, and might be applied in many Actuations, Observations, or Samplings.
+  A Procedure is re-usable, and might be applied in many Executions (Actuations, Observations, or Samplings).
   It explains the steps to be carried out to arrive at reproducible results.
   """@en ;
     skos:example "The measured wind speed differs depending on the height of the sensor above the surface, e.g., due to friction. Consequently, procedures for measuring wind speed define a standard height for anemometers above ground, typically 10m for meteorological measures and 2m in Agrometeorology. This definition of height, sensor placement, and so forth are defined by the Procedure."@en ;
@@ -1435,17 +1435,17 @@ sosa:SamplingCollection a owl:Class ;
   All Sampling properties may appear in a Sampling Collection, including: 
   hasFeatureOfInterest , hasUltimateFeatureOfInterest , madeBySampler , usedProcedure , hasInputValue , startTime , phenomenonTime , resultTime , hasResult . 
   If they are present, the value of these properties summarize the values of the matching properties of the member samplings, where membership is either direct or transitive through one or more member sampling collections. 
-  The following consistency rules apply with respect to the Sampling properties listed above: 
+  The following consistency rules apply to the Sampling properties listed above: 
   
   1. Where an individual Sampling Collection omits a property, a member Sampling (direct or transitive) MAY have any value for that property.
 
-  2. Where an individual Sampling Collection has a single value for a property, each member Sampling (direct or transitive) MUST have that same value for the property - i.e., the collection is homogeneous in that property.  That property MAY then be omitted in any member Sampling or Sampling Collection.
+  2. Where an individual Sampling Collection has a single value for a property, each member Sampling (direct or transitive) MUST have that same value for that property; i.e., the collection is homogeneous in that property.  That property MAY then be omitted in any member Sampling or Sampling Collection.
 
   3. Where an individual Sampling Collection has more than one value for a property, each member Sampling (direct or transitive) MUST have a value for that property that matches one of the values for the property in the collection. 
   
   4. Where an individual Sampling Collection has a value for a property that is a range or interval, each member Sampling (direct or transitive) MUST have a value for that property that matches or falls within that range or interval.
 
-  5. Where an individual Sampling Collection has more than one value for a property that is a range or interval, each member Sampling (direct or transitive) MUST have a value for that property that either matches or falls within one of those ranges or intervals.
+  5. Where an individual Sampling Collection has more than one value for a property that is a range or interval, each member Sampling (direct or transitive) MUST have a value for that property that matches or falls within one of those ranges or intervals.
   """@en ;
     skos:note "The members of a collection do not necessarily share a common value for any property."@en .
 
@@ -1494,7 +1494,7 @@ sosa:Sensor a owl:Class ;
 
   This may be a device, a piece of infrastructure, an agent (including humans), or a software-based system, including systems performing simulations.
 
-  A Sensor responds to a stimulus, e.g., a change in the environment, or input data composed from the results of prior Observations.
+  A Sensor responds to a Stimulus, e.g., a change in the environment, or input data composed from the results of prior Observations.
   """@en ;
     skos:example "Accelerometers, gyroscopes, barometers, magnetometers, and so forth are Sensors that are typically mounted on a modern smartphone (which acts as Host or Platform). Other examples of Sensors include the human eyes."@en ;
     skos:note "The UML class 'Observer' from ISO 19156:2023 is implemented in SOSA by the OWL/RDFS class 'Sensor'. The class name 'Sensor' is preferred for backward compatibility with existing SOSA deployments. " ;
@@ -1547,11 +1547,12 @@ sosa:Actuation a owl:Class ;
     rdfs:subClassOf sosa:Execution ;
     skos:definition """
   act of carrying out an ActuatingProcedure using an Actuator to change the value of an actuatable Property of a FeatureOfInterest
-  
-  In this context hasResult may indicate the value of the Property at the completion of the Actuation
   """@en ;
     skos:example "The activity of automatically closing a window if the temperature in a room drops below 20 degrees Celsius. The activity is the Actuation and the device that closes the window is the Actuator. The Procedure is the rule, plan, or specification that defines the conditions that triggers the Actuation, here a drop in temperature. "@en ;
-    skos:note "relatedObservation SHOULD be used to link to an associated Observation or ObservationCollection that monitors the actuated property to verify that the result value has been obtained. "@en ;
+    skos:note """
+  In this context hasResult may indicate the value of the Property at the completion of the Actuation
+  """@en,
+        "relatedObservation SHOULD be used to link to an associated Observation or ObservationCollection that monitors the actuated property to verify that the result value has been obtained. "@en ;
     skos:scopeNote """
   An Actuation primarily concerns a single Property of a single FeatureOfInterest. 
   Changes to multiple properties, or other combinations of Actuations, may be described in an ActuationCollection.
@@ -1570,17 +1571,17 @@ sosa:ActuationCollection a owl:Class ;
   All Actuation properties may appear in an Actuation Collection, including:
   hasFeatureOfInterest , usedProcedure , madeByActuator , actsOnProperty , endTime ,  hasResult , hasSimpleResult . 
   If they are present, the values of these properties summarize the values of the matching properties of the member actuations, where membership is either direct or transitive through one or more member actuation collections. 
-  The following consistency rules apply with respect to the Actuation properties: 
+  The following consistency rules apply to the Actuation properties listed above: 
   
   1. Where an individual Actuation Collection omits a property, a member Actuation (direct or transitive) MAY have any value for that property.
 
-  2. Where an individual Actuation Collection has a single value for a property, each member Actuation (direct or transitive) MUST have that same value for the property - i.e., the collection is homogeneous in that property.  That property MAY then be omitted in any member Actuation or Actuation Collection.
+  2. Where an individual Actuation Collection has a single value for a property, each member Actuation (direct or transitive) MUST have that same value for that property; i.e., the collection is homogeneous in that property.  That property MAY then be omitted in any member Actuation or Actuation Collection.
 
   3. Where an individual Actuation Collection has more than one value for a property, each member Actuation (direct or transitive) MUST have a value for that property that matches one of the values for the property in the collection. 
   
   4. Where an individual Actuation Collection has a value for a property that is a range or interval, each member Actuation (direct or transitive) MUST have a value for that property that matches or falls within that range or interval.
 
-  5. Where an individual Actuation Collection has more than one value for a property that is a range or interval, each member Actuation (direct or transitive) MUST have a value for that property that either matches or falls within one of those ranges or intervals.
+  5. Where an individual Actuation Collection has more than one value for a property that is a range or interval, each member Actuation (direct or transitive) MUST have a value for that property that matches or falls within one of those ranges or intervals.
   """@en ;
     skos:note "The members of a collection do not necessarily share a common value for any property. "@en .
 
@@ -1606,19 +1607,20 @@ sosa:ObservationCollection a owl:Class ;
   set of Observations or ObservationCollections; collections may be nested
 
   All Observation properties may appear in an Observation Collection, including: 
-  hasFeatureOfInterest , hasUltimateFeatureOfInterest , usedProcedure , madeBySensor , observedProperty , phenomenonTime , startTime, resultTime , hasResult , hasSimpleResult : 
+  hasFeatureOfInterest , hasUltimateFeatureOfInterest , usedProcedure , madeBySensor , observedProperty , phenomenonTime , startTime, resultTime , hasResult , hasSimpleResult. 
   If they are present, the values of these properties summarize the values of the matching properties of the member observations, where membership is either direct or transitive through one or more member observation collections. 
-  The following consistency rules apply with respect to the Observation properties listed above: 
+
+  The following consistency rules apply to the Observation properties listed above: 
   
   1. Where an individual Observation Collection omits a property, a member Observation (direct or transitive) MAY have any value for that property.
 
-  2. Where an individual Observation Collection has a single value for a property, each member Observation(direct or transitive) MUST have that same value for the property - i.e., the collection is homogeneous in that property.  That property MAY then be omitted in any member Observation or Observation Collection.
+  2. Where an individual Observation Collection has a single value for a property, each member Observation (direct or transitive) MUST have that same value for that property; i.e., the collection is homogeneous in that property.  That property MAY then be omitted in any member Observation or Observation Collection.
 
   3. Where an individual Observation Collection has more than one value for a property, each member Observation (direct or transitive) MUST have a value for that property that matches one of the values for the property in the collection. 
   
   4. Where an individual Observation Collection has a value for a property that is a range or interval, each member Observation (direct or transitive) MUST have a value for that property that matches or falls within that range or interval.
 
-  5. Where an individual Observation Collection has more than one value for a property that is a range or interval, each member Observation (direct or transitive) MUST have a value for that property that either matches or falls within one of those ranges or intervals.
+  5. Where an individual Observation Collection has more than one value for a property that is a range or interval, each member Observation (direct or transitive) MUST have a value for that property that matches or falls within one of those ranges or intervals.
   """@en ;
     skos:note """The results of collections of observations are often packaged in a 'data cube' whose axes define the
       range of properties of the set of observations.""",
@@ -1633,20 +1635,20 @@ sosa:ExecutionCollection a owl:Class ;
   set of one or more Executions or ExecutionCollections; collections may be nested
 
   All Execution properties may appear in an Execution Collection, including: 
-  hasFeatureOfInterest , usedProcedure , madeBySystem , endTime, resultTime , startTime . 
-  If they are present, the value of these properties summarize the values of the matching properties of the member Executions, where membership is either direct or transitive through one or more member execution collections.
+  hasFeatureOfInterest , usedProcedure , madeBySystem , endTime, resultTime , startTime. 
+  If they are present, the value of these properties summarize the values of the matching properties of the member Executions, where membership is either direct or transitive through one or more member Execution collections.
 
-  The following consistency rules apply with respect to the execution properties listed above: 
+  The following consistency rules apply to the Execution properties listed above: 
   
   1. Where an individual Execution Collection omits a property, a member Execution (direct or transitive) MAY have any value for that property.
 
-  2. Where an individual Execution Collection has a single value for a property, each member Execution (direct or transitive) MUST have that same value for the property - i.e., the collection is homogeneous in that property.  That property MAY then be omitted in any member Execution or Execution Collection.
+  2. Where an individual Execution Collection has a single value for a property, each member Execution (direct or transitive) MUST have that same value for that property; i.e., the collection is homogeneous in that property.  That property MAY then be omitted in any member Execution or Execution Collection.
 
   3. Where an individual Execution Collection has more than one value for a property, each member Execution (direct or transitive) MUST have a value for that property that matches one of the values for the property in the collection. 
   
   4. Where an individual Execution Collection has a value for a property that is a range or interval, each member Execution (direct or transitive) MUST have a value for that property that matches or falls within that range or interval.
 
-  5. Where an individual Execution Collection has more than one value for a property that is a range or interval, each member Execution (direct or transitive) MUST have a value for that property that either matches or falls within one of those ranges or intervals.
+  5. Where an individual Execution Collection has more than one value for a property that is a range or interval, each member Execution (direct or transitive) MUST have a value for that property that matches or falls within one of those ranges or intervals.
   """@en ;
     skos:note "The members of a collection do not necessarily share a common value for any property. "@en ;
     skos:scopeNote """
