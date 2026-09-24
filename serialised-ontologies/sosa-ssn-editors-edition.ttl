@@ -1,3 +1,4 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
@@ -207,7 +208,12 @@ In particular, (a) the scope is extended to include actuation and sampling; (b) 
   Terms in the sosa: namespace do not carry symmetric equivalent axioms. 
   Axiomatization only uses sosa: terms. 
   """ ;
-    skos:scopeNote "The SSN module contains an axiomatization of the core terms from the SOSA module (serialized in the sosa:ttl file) plus some deprecated terms in the ssn: namespace. " .
+    skos:scopeNote "The SSN module contains an axiomatization of the core terms from the SOSA module (serialized in the sosa:ttl file) plus some deprecated terms in the ssn: namespace. " ;
+    dcat:hasCurrentVersion <http://www.w3.org/ns/ssn/2023/> ;
+    dcat:hasVersion <http://www.w3.org/ns/ssn/2017/>,
+        <http://www.w3.org/ns/ssn/2023/> ;
+    dcat:previousVersion <http://www.w3.org/ns/ssn/2017/> ;
+    dcat:version "2023" .
 
 ssn:Input a owl:Class ;
     rdfs:label "Input"@en ;
@@ -269,7 +275,12 @@ sosa: a owl:Ontology ;
         sosa-obs:,
         sosa-sam: ;
     owl:priorVersion <http://www.w3.org/ns/sosa/2017/> ;
-    owl:versionIRI <http://www.w3.org/ns/sosa/2023/> .
+    owl:versionIRI <http://www.w3.org/ns/sosa/2023/> ;
+    dcat:hasCurrentVersion <http://www.w3.org/ns/sosa/2023/> ;
+    dcat:hasVersion <http://www.w3.org/ns/sosa/2017/>,
+        <http://www.w3.org/ns/sosa/2023/> ;
+    dcat:previousVersion <http://www.w3.org/ns/sosa/2017/> ;
+    dcat:version "2023" .
 
 sosa:ObservableProperty a owl:Class ;
     rdfs:label "Observable Property"@en ;
@@ -560,7 +571,11 @@ ssn-act: a owl:Ontology ;
     dcterms:title "SSN Ontology - actuation module"@en,
         "Sensor, Observation, Sample, and Actuator (SOSA) Ontology - actuation module"@en ;
     owl:imports sosa-act:,
-        ssn-common: .
+        ssn-common: ;
+    owl:versionIRI <http://www.w3.org/ns/ssn/2023/act/> ;
+    dcat:hasCurrentVersion <http://www.w3.org/ns/ssn/2023/act/> ;
+    dcat:hasVersion <http://www.w3.org/ns/ssn/2023/act/> ;
+    dcat:version "2023" .
 
 ssn:detects a owl:ObjectProperty ;
     rdfs:label "detects"@en ;
@@ -636,7 +651,11 @@ ssn-obs: a owl:Ontology ;
     dcterms:rights "Copyright 2025 W3C/OGC." ;
     dcterms:title "Sensor, Observation, Sample, and Actuator (SOSA) Ontology - actuation module"@en ;
     owl:imports sosa-obs:,
-        ssn-common: .
+        ssn-common: ;
+    owl:versionIRI <http://www.w3.org/ns/ssn/2023/obs/> ;
+    dcat:hasCurrentVersion <http://www.w3.org/ns/ssn/2023/obs/> ;
+    dcat:hasVersion <http://www.w3.org/ns/ssn/2023/obs/> ;
+    dcat:version "2023" .
 
 ssn-sam: a owl:Ontology ;
     dcterms:created "2024-02-02"^^xsd:date ;
@@ -648,7 +667,11 @@ ssn-sam: a owl:Ontology ;
     dcterms:rights "Copyright 2025 W3C/OGC." ;
     dcterms:title "Sensor, Observation, Sample, and Actuator (SOSA) Ontology - actuation module"@en ;
     owl:imports sosa-sam:,
-        ssn-common: .
+        ssn-common: ;
+    owl:versionIRI <http://www.w3.org/ns/ssn/2023/sam/> ;
+    dcat:hasCurrentVersion <http://www.w3.org/ns/ssn/2023/sam/> ;
+    dcat:hasVersion <http://www.w3.org/ns/ssn/2023/sam/> ;
+    dcat:version "2023" .
 
 ssn:wasOriginatedBy a owl:ObjectProperty ;
     rdfs:label "was originated by"@en ;
@@ -1004,10 +1027,14 @@ sosa-dep: a owl:Ontology ;
     rdfs:comment "Please report any errors to the W3C Spatial Data on the Web Working Group via the SDW WG Public List public-sdw-wg@w3.org"@en ;
     rdfs:seeAlso <https://www.w3.org/2015/spatial/wiki/Semantic_Sensor_Network_Ontology> ;
     owl:imports sosa-common: ;
+    owl:versionIRI <http://www.w3.org/ns/sosa/2023/dep/> ;
     owl:versionInfo """
   New modular version of the SSN ontology. 
   """@en ;
-    skos:scopeNote "The SOSA-DEP module contains deprecated terms in the sosa: namespace. " .
+    skos:scopeNote "The SOSA-DEP module contains deprecated terms in the sosa: namespace. " ;
+    dcat:hasCurrentVersion <http://www.w3.org/ns/sosa/2023/dep/> ;
+    dcat:hasVersion <http://www.w3.org/ns/sosa/2023/dep/> ;
+    dcat:version "2023" .
 
 sosa:deployedOnPlatform a owl:ObjectProperty ;
     rdfs:label "deployed on platform"@en ;
@@ -1186,7 +1213,11 @@ ssn-common: a owl:Ontology ;
         <http://www.w3.org/Consortium/Legal/2015/copyright-software-and-document> ;
     dcterms:rights "Copyright 2025 W3C/OGC." ;
     dcterms:title "SSN Ontology - core module"@en ;
-    owl:imports sosa-common: .
+    owl:imports sosa-common: ;
+    owl:versionIRI <http://www.w3.org/ns/ssn/2023/common/> ;
+    dcat:hasCurrentVersion <http://www.w3.org/ns/ssn/2023/common/> ;
+    dcat:hasVersion <http://www.w3.org/ns/ssn/2023/common/> ;
+    dcat:version "2023" .
 
 sosa:deployedSystem a owl:ObjectProperty ;
     rdfs:label "deployed system"@en ;
@@ -1650,7 +1681,11 @@ sosa-act: a owl:Ontology ;
         <http://www.w3.org/Consortium/Legal/2015/copyright-software-and-document> ;
     dcterms:rights "Copyright 2025 W3C/OGC." ;
     dcterms:title "Sensor, Observation, Sample, and Actuator (SOSA) Ontology - actuation module"@en ;
-    owl:imports sosa-common: .
+    owl:imports sosa-common: ;
+    owl:versionIRI <http://www.w3.org/ns/sosa/2023/act/> ;
+    dcat:hasCurrentVersion <http://www.w3.org/ns/sosa/2023/act/> ;
+    dcat:hasVersion <http://www.w3.org/ns/sosa/2023/act/> ;
+    dcat:version "2023" .
 
 sosa:Platform a owl:Class ;
     rdfs:label "Platform or Host"@en ;
@@ -1820,7 +1855,11 @@ sosa-sam: a owl:Ontology ;
         <http://www.w3.org/Consortium/Legal/2015/copyright-software-and-document> ;
     dcterms:rights "Copyright 2025 W3C/OGC." ;
     dcterms:title "Sensor, Observation, Sample, and Actuator (SOSA) Ontology - actuation module"@en ;
-    owl:imports sosa-common: .
+    owl:imports sosa-common: ;
+    owl:versionIRI <http://www.w3.org/ns/sosa/2023/sam/> ;
+    dcat:hasCurrentVersion <http://www.w3.org/ns/sosa/2023/sam/> ;
+    dcat:hasVersion <http://www.w3.org/ns/sosa/2023/sam/> ;
+    dcat:version "2023" .
 
 ssn-dep: a owl:Ontology ;
     dcterms:created "2017-04-17"^^xsd:date ;
@@ -1838,6 +1877,7 @@ ssn-dep: a owl:Ontology ;
     rdfs:seeAlso <https://www.w3.org/2015/spatial/wiki/Semantic_Sensor_Network_Ontology> ;
     owl:imports sosa-common:,
         sosa-obs: ;
+    owl:versionIRI <http://www.w3.org/ns/ssn/2023/dep/> ;
     owl:versionInfo """
   New modular version of the SSN ontology. 
   """@en ;
@@ -1848,7 +1888,10 @@ ssn-dep: a owl:Ontology ;
   Terms in the sosa: namespace do not carry symmetric equivalent axioms. 
   Axiomatization only uses sosa: terms. 
   """ ;
-    skos:scopeNote "The SSN-DEP module contains deprecated terms in the ssn: namespace. " .
+    skos:scopeNote "The SSN-DEP module contains deprecated terms in the ssn: namespace. " ;
+    dcat:hasCurrentVersion <http://www.w3.org/ns/ssn/2023/dep/> ;
+    dcat:hasVersion <http://www.w3.org/ns/ssn/2023/dep/> ;
+    dcat:version "2023" .
 
 sosa-obs: a owl:Ontology ;
     dcterms:created "2024-02-02"^^xsd:date ;
@@ -1859,7 +1902,11 @@ sosa-obs: a owl:Ontology ;
         <http://www.w3.org/Consortium/Legal/2015/copyright-software-and-document> ;
     dcterms:rights "Copyright 2025 W3C/OGC." ;
     dcterms:title "Sensor, Observation, Sample, and Actuator (SOSA) Ontology - actuation module"@en ;
-    owl:imports sosa-common: .
+    owl:imports sosa-common: ;
+    owl:versionIRI <http://www.w3.org/ns/sosa/2023/obs/> ;
+    dcat:hasCurrentVersion <http://www.w3.org/ns/sosa/2023/obs/> ;
+    dcat:hasVersion <http://www.w3.org/ns/sosa/2023/obs/> ;
+    dcat:version "2023" .
 
 sosa:Sample a owl:Class ;
     rdfs:label "Sample"@en ;
@@ -2361,5 +2408,9 @@ sosa-common: a owl:Ontology ;
     dcterms:license <http://www.opengeospatial.org/ogc/Software>,
         <http://www.w3.org/Consortium/Legal/2015/copyright-software-and-document> ;
     dcterms:rights "Copyright 2025 W3C/OGC." ;
-    dcterms:title "Sensor, Observation, Sample, and Actuator (SOSA) Ontology - core module"@en .
+    dcterms:title "Sensor, Observation, Sample, and Actuator (SOSA) Ontology - core module"@en ;
+    owl:versionIRI <http://www.w3.org/ns/sosa/2023/common/> ;
+    dcat:hasCurrentVersion <http://www.w3.org/ns/sosa/2023/common/> ;
+    dcat:hasVersion <http://www.w3.org/ns/sosa/2023/common/> ;
+    dcat:version "2023" .
 
