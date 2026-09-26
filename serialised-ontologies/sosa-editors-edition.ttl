@@ -151,24 +151,6 @@ sosa:inputValueForExecution a owl:ObjectProperty ;
   relation from an input value to an Execution that used the value
   """@en .
 
-sosa:isUltimateFeatureOfInterestOf a owl:ObjectProperty ;
-    rdfs:label "is ultimate feature of interest of"@en ;
-    schema1:domainIncludes sosa:FeatureOfInterest ;
-    schema1:rangeIncludes sosa:Actuation,
-        sosa:ActuationCollection,
-        sosa:Deployment,
-        sosa:Execution,
-        sosa:ExecutionCollection,
-        sosa:Observation,
-        sosa:ObservationCollection,
-        sosa:Sampling,
-        sosa:SamplingCollection ;
-    rdfs:isDefinedBy sosa-common: ;
-    owl:inverseOf sosa:hasUltimateFeatureOfInterest ;
-    skos:definition """
-  relation from an ultimate FeatureOfInterest to an Execution, Execution Collection, or Deployment, for which that FeatureOfInterest is the ultimate target
-  """@en .
-
 sosa:resultTime a owl:DatatypeProperty ;
     rdfs:label "result time"@en ;
     schema1:domainIncludes sosa:Execution,
@@ -471,6 +453,7 @@ sosa:hasUltimateFeatureOfInterest a owl:ObjectProperty ;
         sosa:SamplingCollection ;
     schema1:rangeIncludes sosa:FeatureOfInterest ;
     rdfs:isDefinedBy sosa-common: ;
+    owl:inverseOf sosa:isUltimateFeatureOfInterestOf ;
     skos:definition """
   relation from a Deployment or Execution to its ultimate target entity
 
@@ -761,6 +744,24 @@ sosa:isSubSystemOf a owl:ObjectProperty ;
     owl:inverseOf sosa:hasSubSystem ;
     skos:definition """
   relation from a component System to a System that it belongs to
+  """@en .
+
+sosa:isUltimateFeatureOfInterestOf a owl:ObjectProperty ;
+    rdfs:label "is ultimate feature of interest of"@en ;
+    schema1:domainIncludes sosa:FeatureOfInterest ;
+    schema1:rangeIncludes sosa:Actuation,
+        sosa:ActuationCollection,
+        sosa:Deployment,
+        sosa:Execution,
+        sosa:ExecutionCollection,
+        sosa:Observation,
+        sosa:ObservationCollection,
+        sosa:Sampling,
+        sosa:SamplingCollection ;
+    rdfs:isDefinedBy sosa-common: ;
+    owl:inverseOf sosa:hasUltimateFeatureOfInterest ;
+    skos:definition """
+  relation from an ultimate FeatureOfInterest to an Execution, Execution Collection, or Deployment, for which that FeatureOfInterest is the ultimate target
   """@en .
 
 sosa:madeActuation a owl:ObjectProperty ;
