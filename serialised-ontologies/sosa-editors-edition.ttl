@@ -1,6 +1,5 @@
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix schema1: <http://schema.org/> .
@@ -14,10 +13,51 @@
 @prefix time: <http://www.w3.org/2006/time#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
+dcterms:created a owl:AnnotationProperty .
+
+dcterms:creator a owl:AnnotationProperty .
+
+dcterms:description a owl:AnnotationProperty .
+
+dcterms:license a owl:AnnotationProperty .
+
+dcterms:modified a owl:AnnotationProperty .
+
+dcterms:rights a owl:AnnotationProperty .
+
+dcterms:source a owl:AnnotationProperty .
+
+dcterms:title a owl:AnnotationProperty .
+
+schema1:domainIncludes a owl:AnnotationProperty .
+
+schema1:rangeIncludes a owl:AnnotationProperty .
+
+skos:altLabel a owl:AnnotationProperty .
+
+skos:definition a owl:AnnotationProperty .
+
+skos:editorialNote a owl:AnnotationProperty .
+
+skos:example a owl:AnnotationProperty .
+
+skos:note a owl:AnnotationProperty .
+
+skos:prefLabel a owl:AnnotationProperty .
+
+skos:scopeNote a owl:AnnotationProperty .
+
+dcat:hasCurrentVersion a owl:AnnotationProperty .
+
+dcat:hasVersion a owl:AnnotationProperty .
+
+dcat:previousVersion a owl:AnnotationProperty .
+
+dcat:version a owl:AnnotationProperty .
+
 sosa: a owl:Ontology ;
     dcterms:created "2017-04-17"^^xsd:date ;
-    dcterms:creator [ a foaf:Agent ;
-            foaf:name "W3C/OGC Spatial Data on the Web Working Group"@en ] ;
+    dcterms:creator "W3C/OGC Spatiotemporal Data on the Web Working Group"@en ;
     dcterms:description """
   This module imports all the terms in the SOSA module, and adds cross-module annotations (domain/rangeIncludes). 
   """@en ;
@@ -1127,8 +1167,7 @@ sosa:propertyFor a owl:ObjectProperty ;
 
 sosa-dep: a owl:Ontology ;
     dcterms:created "2017-04-17"^^xsd:date ;
-    dcterms:creator [ a foaf:Agent ;
-            foaf:name "W3C/OGC Spatial Data on the Web Working Group"@en ] ;
+    dcterms:creator "W3C/OGC Spatiotemporal Data on the Web Working Group"@en ;
     dcterms:description """
   This module contains terms defined in the sosa: namespace in the 2017 edition that are deprecated. 
   """@en ;
@@ -1319,8 +1358,7 @@ or which is the target of Executions planned as part of a Deployment.
 
 sosa-act: a owl:Ontology ;
     dcterms:created "2024-02-02"^^xsd:date ;
-    dcterms:creator [ a foaf:Agent ;
-            foaf:name "W3C/OGC Spatial Data on the Web Working Group"@en ] ;
+    dcterms:creator "W3C/OGC Spatiotemporal Data on the Web Working Group"@en ;
     dcterms:description "Actuation classes and properties for the SSN Ontology."@en ;
     dcterms:license <http://www.opengeospatial.org/ogc/Software>,
         <http://www.w3.org/Consortium/Legal/2015/copyright-software-and-document> ;
@@ -1536,8 +1574,7 @@ sosa:Sampling a owl:Class ;
 
 sosa-obs: a owl:Ontology ;
     dcterms:created "2024-02-02"^^xsd:date ;
-    dcterms:creator [ a foaf:Agent ;
-            foaf:name "W3C/OGC Spatial Data on the Web Working Group"@en ] ;
+    dcterms:creator "W3C/OGC Spatiotemporal Data on the Web Working Group"@en ;
     dcterms:description "Observation classes and properties for the SSN Ontology."@en ;
     dcterms:license <http://www.opengeospatial.org/ogc/Software>,
         <http://www.w3.org/Consortium/Legal/2015/copyright-software-and-document> ;
@@ -1551,8 +1588,7 @@ sosa-obs: a owl:Ontology ;
 
 sosa-sam: a owl:Ontology ;
     dcterms:created "2024-02-02"^^xsd:date ;
-    dcterms:creator [ a foaf:Agent ;
-            foaf:name "W3C/OGC Spatial Data on the Web Working Group"@en ] ;
+    dcterms:creator "W3C/OGC Spatiotemporal Data on the Web Working Group"@en ;
     dcterms:description "Sampling classes and properties for the SSN Ontology."@en ;
     dcterms:license <http://www.opengeospatial.org/ogc/Software>,
         <http://www.w3.org/Consortium/Legal/2015/copyright-software-and-document> ;
@@ -1703,8 +1739,7 @@ sosa:Observation a owl:Class ;
 
 sosa-common: a owl:Ontology ;
     dcterms:created "2024-02-02"^^xsd:date ;
-    dcterms:creator [ a foaf:Agent ;
-            foaf:name "W3C/OGC Spatial Data on the Web Working Group"@en ] ;
+    dcterms:creator "W3C/OGC Spatiotemporal Data on the Web Working Group"@en ;
     dcterms:description "Core classes and properties for the SSN Ontology."@en ;
     dcterms:license <http://www.opengeospatial.org/ogc/Software>,
         <http://www.w3.org/Consortium/Legal/2015/copyright-software-and-document> ;

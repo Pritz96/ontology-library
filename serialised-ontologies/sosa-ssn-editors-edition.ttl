@@ -1,6 +1,5 @@
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -20,6 +19,50 @@
 @prefix ssn-sam: <http://www.w3.org/ns/ssn/sam/> .
 @prefix time: <http://www.w3.org/2006/time#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+dcterms:created a owl:AnnotationProperty .
+
+dcterms:creator a owl:AnnotationProperty .
+
+dcterms:description a owl:AnnotationProperty .
+
+dcterms:license a owl:AnnotationProperty .
+
+dcterms:modified a owl:AnnotationProperty .
+
+dcterms:rights a owl:AnnotationProperty .
+
+dcterms:source a owl:AnnotationProperty .
+
+dcterms:title a owl:AnnotationProperty .
+
+schema1:domainIncludes a owl:AnnotationProperty .
+
+schema1:rangeIncludes a owl:AnnotationProperty .
+
+skos:altLabel a owl:AnnotationProperty .
+
+skos:definition a owl:AnnotationProperty .
+
+skos:editorialNote a owl:AnnotationProperty .
+
+skos:example a owl:AnnotationProperty .
+
+skos:historyNote a owl:AnnotationProperty .
+
+skos:note a owl:AnnotationProperty .
+
+skos:prefLabel a owl:AnnotationProperty .
+
+skos:scopeNote a owl:AnnotationProperty .
+
+dcat:hasCurrentVersion a owl:AnnotationProperty .
+
+dcat:hasVersion a owl:AnnotationProperty .
+
+dcat:previousVersion a owl:AnnotationProperty .
+
+dcat:version a owl:AnnotationProperty .
 
 sosa:ActuatableProperty a owl:Class ;
     rdfs:label "Actuatable Property"@en ;
@@ -158,8 +201,7 @@ sosa:startTime a owl:DatatypeProperty ;
 
 ssn: a owl:Ontology ;
     dcterms:created "2017-04-17"^^xsd:date ;
-    dcterms:creator [ a foaf:Agent ;
-            foaf:name "W3C/OGC Spatial Data on the Web Working Group"@en ] ;
+    dcterms:creator "W3C/OGC Spatiotemporal Data on the Web Working Group"@en ;
     dcterms:description """
   This module imports all the axiomatizations of the SOSA terms, and adds cross-module axioms. 
   """@en,
@@ -180,7 +222,7 @@ ssn: a owl:Ontology ;
     owl:versionIRI <http://www.w3.org/ns/ssn/2023/> ;
     owl:versionInfo """New modular version of the SSN ontology. 
 
-This ontology was originally developed in 2009-2011 by the W3C Semantic Sensor Networks Incubator Group (SSN-XG). For more information on the group's activities see: http://www.w3.org/2005/Incubator/ssn/. The ontology was revised and modularized in 2015-2017 by the W3C/OGC Spatial Data on the Web Working Group, see: https://www.w3.org/2015/spatial/wiki/Semantic_Sensor_Network_Ontology. 
+This ontology was originally developed in 2009-2011 by the W3C Semantic Sensor Networks Incubator Group (SSN-XG). For more information on the group's activities see: http://www.w3.org/2005/Incubator/ssn/. The ontology was revised and modularized in 2015-2017 by the W3C/OGC Spatiotemporal Data on the Web Working Group, see: https://www.w3.org/2015/spatial/wiki/Semantic_Sensor_Network_Ontology. 
 
 In particular, (a) the scope is extended to include actuation and sampling; (b) the core concepts and properties are factored out into the SOSA ontology. The SSN ontology imports SOSA and adds formal axiomatization consistent with the text definitions in SOSA, and adds classes and properties to accommodate the scope of the original SSN ontology. """@en ;
     skos:historyNote """
@@ -242,8 +284,7 @@ ssn:Stimulus a owl:Class ;
 
 sosa: a owl:Ontology ;
     dcterms:created "2017-04-17"^^xsd:date ;
-    dcterms:creator [ a foaf:Agent ;
-            foaf:name "W3C/OGC Spatial Data on the Web Working Group"@en ] ;
+    dcterms:creator "W3C/OGC Spatiotemporal Data on the Web Working Group"@en ;
     dcterms:description """
   This module imports all the terms in the SOSA module, and adds cross-module annotations (domain/rangeIncludes). 
   """@en ;
@@ -559,8 +600,7 @@ ssn:Property a owl:Class ;
 
 ssn-act: a owl:Ontology ;
     dcterms:created "2024-02-02"^^xsd:date ;
-    dcterms:creator [ a foaf:Agent ;
-            foaf:name "W3C/OGC Spatial Data on the Web Working Group"@en ] ;
+    dcterms:creator "W3C/OGC Spatiotemporal Data on the Web Working Group"@en ;
     dcterms:description "Actuation classes and properties for the SSN Ontology."@en,
         """Actuation classes and properties for the SSN Ontology.
   This module adds RDFS and OWL axioms to the terms defined in SOSA Actuation
@@ -643,8 +683,7 @@ ssn:isProxyFor a owl:ObjectProperty ;
 
 ssn-obs: a owl:Ontology ;
     dcterms:created "2024-02-02"^^xsd:date ;
-    dcterms:creator [ a foaf:Agent ;
-            foaf:name "W3C/OGC Spatial Data on the Web Working Group"@en ] ;
+    dcterms:creator "W3C/OGC Spatiotemporal Data on the Web Working Group"@en ;
     dcterms:description "Observation classes and properties for the SSN Ontology."@en ;
     dcterms:license <http://www.opengeospatial.org/ogc/Software>,
         <http://www.w3.org/Consortium/Legal/2015/copyright-software-and-document> ;
@@ -659,8 +698,7 @@ ssn-obs: a owl:Ontology ;
 
 ssn-sam: a owl:Ontology ;
     dcterms:created "2024-02-02"^^xsd:date ;
-    dcterms:creator [ a foaf:Agent ;
-            foaf:name "W3C/OGC Spatial Data on the Web Working Group"@en ] ;
+    dcterms:creator "W3C/OGC Spatiotemporal Data on the Web Working Group"@en ;
     dcterms:description "Sampling classes and properties for the SSN Ontology."@en ;
     dcterms:license <http://www.opengeospatial.org/ogc/Software>,
         <http://www.w3.org/Consortium/Legal/2015/copyright-software-and-document> ;
@@ -1012,30 +1050,6 @@ sosa:actsOnProperty a owl:ObjectProperty ;
   """@en ;
     skos:example "In the activity (Actuation) of automatically closing a window if the temperature in a room drops below 20 degrees Celsius, the property upon which the Actuator acts is the state of the window as it changes from being open to being closed. "@en .
 
-sosa-dep: a owl:Ontology ;
-    dcterms:created "2017-04-17"^^xsd:date ;
-    dcterms:creator [ a foaf:Agent ;
-            foaf:name "W3C/OGC Spatial Data on the Web Working Group"@en ] ;
-    dcterms:description """
-  This module contains terms defined in the sosa: namespace in the 2017 edition that are deprecated. 
-  """@en ;
-    dcterms:license <http://www.opengeospatial.org/ogc/Software>,
-        <http://www.w3.org/Consortium/Legal/2015/copyright-software-and-document> ;
-    dcterms:modified "2024-10-02"^^xsd:date ;
-    dcterms:rights "Copyright 2025 W3C/OGC." ;
-    dcterms:title "Semantic Sensor Network Ontology - SOSA deprecated terms"@en ;
-    rdfs:comment "Please report any errors to the W3C Spatial Data on the Web Working Group via the SDW WG Public List public-sdw-wg@w3.org"@en ;
-    rdfs:seeAlso <https://www.w3.org/2015/spatial/wiki/Semantic_Sensor_Network_Ontology> ;
-    owl:imports sosa-common: ;
-    owl:versionIRI <http://www.w3.org/ns/sosa/2023/dep/> ;
-    owl:versionInfo """
-  New modular version of the SSN ontology. 
-  """@en ;
-    skos:scopeNote "The SOSA-DEP module contains deprecated terms in the sosa: namespace. " ;
-    dcat:hasCurrentVersion <http://www.w3.org/ns/sosa/2023/dep/> ;
-    dcat:hasVersion <http://www.w3.org/ns/sosa/2023/dep/> ;
-    dcat:version "2023" .
-
 sosa:deployedOnPlatform a owl:ObjectProperty ;
     rdfs:label "deployed on platform"@en ;
     schema1:domainIncludes sosa:Deployment ;
@@ -1204,8 +1218,7 @@ sosa:wasOriginatedBy a owl:ObjectProperty ;
 
 ssn-common: a owl:Ontology ;
     dcterms:created "2024-02-03"^^xsd:date ;
-    dcterms:creator [ a foaf:Agent ;
-            foaf:name "W3C/OGC Spatial Data on the Web Working Group"@en ] ;
+    dcterms:creator "W3C/OGC Spatiotemporal Data on the Web Working Group"@en ;
     dcterms:description """Core classes and properties for the SSN Ontology.
   This module adds RDFS and OWL axioms to the terms defined in SOSA Core
   """@en ;
@@ -1217,6 +1230,29 @@ ssn-common: a owl:Ontology ;
     owl:versionIRI <http://www.w3.org/ns/ssn/2023/common/> ;
     dcat:hasCurrentVersion <http://www.w3.org/ns/ssn/2023/common/> ;
     dcat:hasVersion <http://www.w3.org/ns/ssn/2023/common/> ;
+    dcat:version "2023" .
+
+sosa-dep: a owl:Ontology ;
+    dcterms:created "2017-04-17"^^xsd:date ;
+    dcterms:creator "W3C/OGC Spatiotemporal Data on the Web Working Group"@en ;
+    dcterms:description """
+  This module contains terms defined in the sosa: namespace in the 2017 edition that are deprecated. 
+  """@en ;
+    dcterms:license <http://www.opengeospatial.org/ogc/Software>,
+        <http://www.w3.org/Consortium/Legal/2015/copyright-software-and-document> ;
+    dcterms:modified "2024-10-02"^^xsd:date ;
+    dcterms:rights "Copyright 2025 W3C/OGC." ;
+    dcterms:title "Semantic Sensor Network Ontology - SOSA deprecated terms"@en ;
+    rdfs:comment "Please report any errors to the W3C Spatial Data on the Web Working Group via the SDW WG Public List public-sdw-wg@w3.org"@en ;
+    rdfs:seeAlso <https://www.w3.org/2015/spatial/wiki/Semantic_Sensor_Network_Ontology> ;
+    owl:imports sosa-common: ;
+    owl:versionIRI <http://www.w3.org/ns/sosa/2023/dep/> ;
+    owl:versionInfo """
+  New modular version of the SSN ontology. 
+  """@en ;
+    skos:scopeNote "The SOSA-DEP module contains deprecated terms in the sosa: namespace. " ;
+    dcat:hasCurrentVersion <http://www.w3.org/ns/sosa/2023/dep/> ;
+    dcat:hasVersion <http://www.w3.org/ns/sosa/2023/dep/> ;
     dcat:version "2023" .
 
 sosa:deployedSystem a owl:ObjectProperty ;
@@ -1675,8 +1711,7 @@ sosa:usedProcedure a owl:ObjectProperty ;
 
 sosa-act: a owl:Ontology ;
     dcterms:created "2024-02-02"^^xsd:date ;
-    dcterms:creator [ a foaf:Agent ;
-            foaf:name "W3C/OGC Spatial Data on the Web Working Group"@en ] ;
+    dcterms:creator "W3C/OGC Spatiotemporal Data on the Web Working Group"@en ;
     dcterms:description "Actuation classes and properties for the SSN Ontology."@en ;
     dcterms:license <http://www.opengeospatial.org/ogc/Software>,
         <http://www.w3.org/Consortium/Legal/2015/copyright-software-and-document> ;
@@ -1793,11 +1828,11 @@ sosa:Procedure a owl:Class ;
     rdfs:label "Procedure"@en ;
     rdfs:isDefinedBy sosa-common: ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:allValuesFrom sosa:System ;
-            owl:onProperty sosa:implementedBy ],
-        [ a owl:Restriction ;
             owl:allValuesFrom sosa:Property ;
-            owl:onProperty sosa:forProperty ] ;
+            owl:onProperty sosa:forProperty ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom sosa:System ;
+            owl:onProperty sosa:implementedBy ] ;
     skos:definition """
   workflow, protocol, plan, algorithm, program, or computational method specifying how to make an Execution
 
@@ -1849,8 +1884,7 @@ sosa:Actuator a owl:Class ;
 
 sosa-sam: a owl:Ontology ;
     dcterms:created "2024-02-02"^^xsd:date ;
-    dcterms:creator [ a foaf:Agent ;
-            foaf:name "W3C/OGC Spatial Data on the Web Working Group"@en ] ;
+    dcterms:creator "W3C/OGC Spatiotemporal Data on the Web Working Group"@en ;
     dcterms:description "Sampling classes and properties for the SSN Ontology."@en ;
     dcterms:license <http://www.opengeospatial.org/ogc/Software>,
         <http://www.w3.org/Consortium/Legal/2015/copyright-software-and-document> ;
@@ -1864,19 +1898,19 @@ sosa-sam: a owl:Ontology ;
 
 ssn-dep: a owl:Ontology ;
     dcterms:created "2017-04-17"^^xsd:date ;
-    dcterms:creator [ a foaf:Agent ;
-            foaf:name "W3C/OGC Spatial Data on the Web Working Group"@en ] ;
+    dcterms:creator "W3C/OGC Spatiotemporal Data on the Web Working Group"@en ;
     dcterms:description """
   This module contains terms defined in the ssn: namespace that now have equivalents in the sosa: namespace so are deprecated. 
   """@en ;
     dcterms:license <http://www.opengeospatial.org/ogc/Software>,
         <http://www.w3.org/Consortium/Legal/2015/copyright-software-and-document> ;
-    dcterms:modified "2024-02-03"^^xsd:date ;
+    dcterms:modified "2026-09-28"^^xsd:date ;
     dcterms:rights "Copyright 2025 W3C/OGC." ;
     dcterms:title "Semantic Sensor Network Ontology - SSN deprecated terms"@en ;
     rdfs:comment "Please report any errors to the W3C Spatial Data on the Web Working Group via the SDW WG Public List public-sdw-wg@w3.org"@en ;
     rdfs:seeAlso <https://www.w3.org/2015/spatial/wiki/Semantic_Sensor_Network_Ontology> ;
     owl:imports sosa-common:,
+        sosa-dep:,
         sosa-obs: ;
     owl:versionIRI <http://www.w3.org/ns/ssn/2023/dep/> ;
     owl:versionInfo """
@@ -1896,8 +1930,7 @@ ssn-dep: a owl:Ontology ;
 
 sosa-obs: a owl:Ontology ;
     dcterms:created "2024-02-02"^^xsd:date ;
-    dcterms:creator [ a foaf:Agent ;
-            foaf:name "W3C/OGC Spatial Data on the Web Working Group"@en ] ;
+    dcterms:creator "W3C/OGC Spatiotemporal Data on the Web Working Group"@en ;
     dcterms:description "Observation classes and properties for the SSN Ontology."@en ;
     dcterms:license <http://www.opengeospatial.org/ogc/Software>,
         <http://www.w3.org/Consortium/Legal/2015/copyright-software-and-document> ;
@@ -1913,15 +1946,12 @@ sosa:Sample a owl:Class ;
     rdfs:label "Sample"@en ;
     rdfs:isDefinedBy sosa-sam: ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:allValuesFrom sosa:Sampler ;
-            owl:onProperty sosa:isResultOfMadeBySampler ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom sosa:SamplingProcedure ;
-            owl:onProperty sosa:isResultOfUsedProcedure ],
-        [ a owl:Restriction ;
             owl:allValuesFrom [ a owl:Class ;
                     owl:unionOf ( sosa:Sampling sosa:SamplingCollection ) ] ;
             owl:onProperty sosa:isResultOf ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom sosa:SamplingProcedure ;
+            owl:onProperty sosa:isResultOfUsedProcedure ],
         [ a owl:Restriction ;
             owl:allValuesFrom sosa:FeatureOfInterest ;
             owl:onProperty sosa:isSampleOf ],
@@ -1933,7 +1963,10 @@ sosa:Sample a owl:Class ;
             owl:onProperty sosa:hasOriginalSample ],
         [ a owl:Restriction ;
             owl:allValuesFrom sosa:FeatureOfInterest ;
-            owl:onProperty sosa:isSampleOfUltimateFOI ] ;
+            owl:onProperty sosa:isSampleOfUltimateFOI ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom sosa:Sampler ;
+            owl:onProperty sosa:isResultOfMadeBySampler ] ;
     skos:definition """
   piece or subset that is intended to be representative of a FeatureOfInterest
   """@en ;
@@ -2113,9 +2146,6 @@ sosa:Actuation a owl:Class ;
     rdfs:label "Actuation"@en ;
     rdfs:isDefinedBy sosa-act: ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:allValuesFrom sosa:ActuatingProcedure ;
-            owl:onProperty sosa:usedProcedure ],
-        [ a owl:Restriction ;
             owl:allValuesFrom sosa:FeatureOfInterest ;
             owl:onProperty sosa:hasFeatureOfInterest ],
         [ a owl:Restriction ;
@@ -2124,6 +2154,9 @@ sosa:Actuation a owl:Class ;
         [ a owl:Restriction ;
             owl:allValuesFrom sosa:Property ;
             owl:onProperty sosa:actsOnProperty ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom sosa:ActuatingProcedure ;
+            owl:onProperty sosa:usedProcedure ],
         sosa:Execution ;
     skos:definition """
   act of carrying out an ActuatingProcedure using an Actuator to change the value of an actuatable Property of a FeatureOfInterest
@@ -2252,12 +2285,6 @@ sosa:Property a owl:Class ;
             owl:allValuesFrom [ owl:unionOf ( sosa:Actuation sosa:ActuationCollection ) ] ;
             owl:onProperty sosa:wasActedOnBy ],
         [ a owl:Restriction ;
-            owl:allValuesFrom sosa:FeatureOfInterest ;
-            owl:onProperty sosa:isPropertyOf ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom sosa:Procedure ;
-            owl:onProperty sosa:hasProcedure ],
-        [ a owl:Restriction ;
             owl:allValuesFrom sosa:Sensor ;
             owl:onProperty sosa:isObservedBy ],
         [ a owl:Restriction ;
@@ -2265,7 +2292,13 @@ sosa:Property a owl:Class ;
             owl:onProperty sosa:wasObservedBy ],
         [ a owl:Restriction ;
             owl:allValuesFrom sosa:Stimulus ;
-            owl:onProperty [ owl:inverseOf sosa:isProxyFor ] ] ;
+            owl:onProperty [ owl:inverseOf sosa:isProxyFor ] ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom sosa:FeatureOfInterest ;
+            owl:onProperty sosa:isPropertyOf ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom sosa:Procedure ;
+            owl:onProperty sosa:hasProcedure ] ;
     skos:definition """
   identifiable quality of features of interest that can be observed or acted upon
 
@@ -2368,9 +2401,6 @@ sosa:Observation a owl:Class ;
     rdfs:label "Observation"@en ;
     rdfs:isDefinedBy sosa-obs: ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:allValuesFrom sosa:ObservingProcedure ;
-            owl:onProperty sosa:usedProcedure ],
-        [ a owl:Restriction ;
             owl:allValuesFrom sosa:FeatureOfInterest ;
             owl:onProperty sosa:hasFeatureOfInterest ],
         [ a owl:Restriction ;
@@ -2385,6 +2415,9 @@ sosa:Observation a owl:Class ;
         [ a owl:Restriction ;
             owl:allValuesFrom sosa:Sensor ;
             owl:onProperty sosa:madeBySensor ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom sosa:ObservingProcedure ;
+            owl:onProperty sosa:usedProcedure ],
         sosa:Execution ;
     skos:definition """
   act of carrying out an ObservingProcedure using a Sensor to estimate or calculate a value of an observable Property of a FeatureOfInterest
@@ -2403,8 +2436,7 @@ sosa:Observation a owl:Class ;
 
 sosa-common: a owl:Ontology ;
     dcterms:created "2024-02-02"^^xsd:date ;
-    dcterms:creator [ a foaf:Agent ;
-            foaf:name "W3C/OGC Spatial Data on the Web Working Group"@en ] ;
+    dcterms:creator "W3C/OGC Spatiotemporal Data on the Web Working Group"@en ;
     dcterms:description "Core classes and properties for the SSN Ontology."@en ;
     dcterms:license <http://www.opengeospatial.org/ogc/Software>,
         <http://www.w3.org/Consortium/Legal/2015/copyright-software-and-document> ;
